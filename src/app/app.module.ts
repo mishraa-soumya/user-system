@@ -5,18 +5,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+// sub modules 
+
+import { UsersModule } from './users/users.module';
+
 import { AppComponent } from './app.component';
-import { ListUserComponent } from './list-user/list-user.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListUserComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    UsersModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

@@ -1,14 +1,21 @@
+import { Component} from '@angular/core';
 import { UsersModule } from './../../users.module';
-import { Component, OnInit } from '@angular/core';
+import { User } from '../../user';
+
+import { UsersService } from '../../users.service';
 
 @Component({
-    'selector': 'add-user',
-    'templateUrl': './add-user.component.html'
+    'selector': 'app-add-user',
+    'templateUrl': './add-user.component.html',
+    'providers': [UsersService]
 })
 
-export class AddUserComponent implements OnInit {
-
-    constructor(){}
-
-    ngOnInit(){}
+export class AddUserComponent {
+    title = 'Registration Forms';
+    model: User[] = [];
+    constructor(private UsersService: UsersService) {}
+    saveForm(model: User, isValid: boolean) {
+        console.log(model);
+        this.UsersService.saveUserData(){}
+    }
 }
