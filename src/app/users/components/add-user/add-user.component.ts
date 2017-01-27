@@ -42,9 +42,9 @@ removeAddress(i: number) {
   control.removeAt(i);
 }
 
-saveForm(model: User, isValid: boolean) {
-    console.log(model);
-    console.log(isValid);
+saveForm({ value, valid }: {value: User, valid: boolean}) {
+    console.log(value);
+    console.log(valid);
     // this.UsersService.saveUserData(){}
 }
 }
