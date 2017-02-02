@@ -5,6 +5,8 @@ import { User } from '../../user';
 
 import { UsersService } from '../../users.service';
 
+import { Observable } from 'rxjs/observable';
+
 @Component({
     'selector': 'app-add-user',
     'templateUrl': './add-user.component.html',
@@ -15,7 +17,9 @@ export class AddUserComponent implements OnInit {
     title = 'Registration Forms';
     RegForm: FormGroup;
     model: User[] = [];
-    constructor(private UsersService: UsersService, private fb: FormBuilder) {}
+    constructor(
+        private UsersService: UsersService,
+        private fb: FormBuilder) {}
     ngOnInit () {
         this.RegForm = this.fb.group({
             name: ['', [Validators.required, Validators.minLength(5)]],
@@ -45,6 +49,10 @@ removeAddress(i: number) {
 saveForm({ value, valid }: {value: User, valid: boolean}) {
     console.log(value);
     console.log(valid);
-    // this.UsersService.saveUserData(){}
+    let userOperation: Observable<User>;
+    if (valid === true) {
+        userOperation = this.UsersService.saveUserData(value);
+        userOperation.subscribe();
+    }
 }
 }
