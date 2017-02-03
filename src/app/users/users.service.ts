@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { User } from './user';
 import { Observable } from 'rxjs/observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,9 +10,7 @@ import * as _ from 'lodash';
 export class UsersService {
   private serviceurl: string = 'http://localhost/demoapi/customer.php';
 
-  constructor(
-    private http: Http,
-    private User: User) {}
+  constructor(private http: Http) {}
   /**
    * To save user details on server
    */
