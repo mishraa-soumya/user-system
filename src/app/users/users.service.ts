@@ -14,7 +14,7 @@ export class UsersService {
   /**
    * To save user details on server
    */
-  saveUserData(data: Object): Observable<User> {
+  saveUserData(data: Object) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
 
