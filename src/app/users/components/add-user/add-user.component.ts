@@ -6,7 +6,6 @@ import { User } from '../../user';
 import { UsersService } from '../../users.service';
 
 import { Observable } from 'rxjs/observable';
-
 @Component({
     'selector': 'app-add-user',
     'templateUrl': './add-user.component.html',

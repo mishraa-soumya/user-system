@@ -6,7 +6,7 @@
       <!--<form #regForm="ngForm" (ngSubmit)="saveForm(regForm.value, regForm.valid)">
           <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" name="name" [(ngModel)]="model.name" #name="ngModel" required minlength="6" />
+          <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #name="ngModel" required minlength="6" />
           <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
               <div [hidden]="!name.errors.required">Name is required</div>
               <div [hidden]="!name.errors.minlength">Name should be of minimum 5 characters</div>
@@ -20,14 +20,21 @@
       </form>-->
       <!-- Model Driven Form -->
       <form [formGroup]="RegForm" novalidate (ngSubmit)="saveForm(RegForm)">
-          <div class="form-group">
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <input md-input type="text" formControlName="name" placeholder="Enter you full name"/>
+          </md-input-container>
+        </div>
+        
+          <!--<div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control"
-            formControlName="name"/>
+            <!--<input type="text" class="form-control"
+            formControlName="name"/>-->
+            <!--<md-input type="text" formControlName="name" placeholder="Please enter your name"></md-input>
             <small *ngIf="!RegForm.controls.name.valid" class="text-danger">
               Name is required (minimum 5 characters).
-            </small>
-          </div>
+            </small>-->
+          <!--</div>-->
           <!-- Addreses -->
           <div formArrayName="addresses">
             <div *ngFor="let address of RegForm.controls.addresses.controls; let i=index"
